@@ -12,14 +12,16 @@ import java.util.List;
 public class ProteinSequencer implements Sequencer {
 
     public void makeAlignment() throws CompoundNotFoundException {
-        ProteinSequence s1 = new ProteinSequence("GDTTCVSMIWPTEKEDHMCMFVVACALKTWPSKLKMRQTGGENWFMIYMWYSSPMGTVNR");
-        ProteinSequence s2 = new ProteinSequence("PDCPTRTRFSEMPETEYQAPIPNRFGRLGWAMLSGYKYVTCAENLCDMCSHGPCEAYMSG");
-        ProteinSequence s3 = new ProteinSequence("CGLNIELPACVWIDWSLDFQACQQSWDVGLWRVWSANPIPECEWKLNNQGDKLSMITAVH");
+        String[] ids = new String[] {"Q21691", "A8WS47", "O48771"};  
+        List<ProteinSequence> list;
+        try {
+            list = SequenceReader.getProteinSequences(ids);
+            Profile<ProteinSequence, AminoAcidCompound> multipleSequenceAlignment = Alignments.getMultipleSequenceAlignment(list);
 
-        List<ProteinSequence> list = Arrays.asList(s1, s2, s3);
+            System.out.println("PROTEIN ALIGNMENT: \n" + multipleSequenceAlignment);
+        } catch (Exception e) {
+            System.out.print(e);
+        }
 
-        Profile<ProteinSequence, AminoAcidCompound> multipleSequenceAlignment = Alignments.getMultipleSequenceAlignment(list);
-
-        System.out.println("PROTEIN ALIGNMENT: \n" + multipleSequenceAlignment);
     }
 }

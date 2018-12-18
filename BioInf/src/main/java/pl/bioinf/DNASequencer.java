@@ -5,6 +5,7 @@ import org.biojava.nbio.core.alignment.template.Profile;
 import org.biojava.nbio.core.exceptions.CompoundNotFoundException;
 import org.biojava.nbio.core.sequence.DNASequence;
 import org.biojava.nbio.core.sequence.compound.NucleotideCompound;
+import org.biojava.nbio.structure.gui.JmolViewerImpl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +20,9 @@ public class DNASequencer implements Sequencer {
         List<DNASequence> list = Arrays.asList(d1, d2, d3);
 
         Profile<DNASequence, NucleotideCompound> multipleSequenceDAlignment = Alignments.getMultipleSequenceAlignment(list);
+//        SequenceDisplay c = new SequenceDisplay(multipleSequenceDAlignment);
 
+                
         System.out.println("DNA ALIGNMENT: \n" + multipleSequenceDAlignment);
     }
 }
