@@ -31,6 +31,12 @@
     </dependency>
 
     <dependency>
+    <groupId>org.biojava</groupId>
+    <artifactId>biojava-structure-gui</artifactId>
+    <version>5.0.0</version>
+</dependency>
+
+    <dependency>
       <groupId>org.biojava</groupId>
       <artifactId>biojava3-core</artifactId>
       <version>3.0</version>
